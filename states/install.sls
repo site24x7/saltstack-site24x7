@@ -1,7 +1,7 @@
 {% if not salt['file.directory_exists' ]('/opt/site24x7/monagent/bin') %}
 download-agent:
   cmd.run:
-    - name: sudo wget -r https://staticdownloads.site24x7.com/server/{{ pillar['site24x7']['installfile']['fileName'] }}
+    - name: sudo wget https://staticdownloads.site24x7.com/server/{{ pillar['site24x7']['installfile']['fileName'] }}
     - user: root
 
 chmod-agent:
