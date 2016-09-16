@@ -13,11 +13,11 @@ Redhat, Suse, Ubuntu
 Params
 ============
 
-apikey: SITE24X7APIKEY 
+devicekey: SITE24X7DEVICEKEY 
 
-Your API Key is available under the Site24x7 "Add Server Monitor" page. Log In and navigate to Home > Monitors > Click on the (+) icon > Linux Server Monitoing.
+Your device Key is available under the Site24x7 "Add Server Monitor" page. Log In and navigate to Home > Monitors > Click on the (+) icon > Linux Server Monitoing.
 
-Site24x7 API key is unique for your account. Alternate API Key can also be generated from your Site24x7 account under Admin > Developer > Device Key.
+Site24x7 device key is unique for your account. Alternate device Key can also be generated from your Site24x7 account under Admin > Developer > Device Key.
 
 proxy: None
 
@@ -34,7 +34,7 @@ Installation Steps
 3. Make the following changes :
       a. Edit your salt state top.sls file [ /srv/salt/top.sls ]. Add "- install" , "- status" , " -uninstall" entries under your required environment.
       b. Edit your pillar top.sls file [ /srv/pillar/top.sls]. Add "- site24x7" entry under your required environment.
-      c. Edit the /srv/pillar/site24x7.sls file. Replace the apikey with the actual device key obtained from our portal. Replace proxy values if required in the proxy field (Let it be "None" if no proxy is required. )
+      c. Edit the /srv/pillar/site24x7.sls file. Replace the devicekey with the actual device key obtained from our portal. Replace proxy values if required in the proxy field (Let it be "None" if no proxy is required. )
 4. Now your setup is complete and you can exectue the below sample commands :
       a. To bulk install our agent in all minions : sudo salt '*' state.sls install
       b. To bulk uninstall our agent in all minions : sudo salt '*' state.sls uninstall
