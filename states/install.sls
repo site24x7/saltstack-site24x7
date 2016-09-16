@@ -12,9 +12,9 @@ chmod-agent:
 install-agent:
   cmd.run:
     {% if pillar['site24x7']['user']['proxy'] == 'None' %}
-    - name: sudo ./{{ pillar['site24x7']['installfile']['fileName'] }} -i -key={{ pillar['site24x7']['user']['apikey'] }} -f
+    - name: sudo ./{{ pillar['site24x7']['installfile']['fileName'] }} -i -key={{ pillar['site24x7']['user']['devicekey'] }} -f
     {% else %}
-    - name: sudo ./{{ pillar['site24x7']['installfile']['fileName'] }} -i -key={{ pillar['site24x7']['user']['apikey'] }} -proxy={{ pillar['site24x7']['user']['proxy'] }} -f
+    - name: sudo ./{{ pillar['site24x7']['installfile']['fileName'] }} -i -key={{ pillar['site24x7']['user']['devicekey'] }} -proxy={{ pillar['site24x7']['user']['proxy'] }} -f
     {% endif %}
     - user: root
 {% endif %}
