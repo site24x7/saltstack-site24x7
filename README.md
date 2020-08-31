@@ -36,9 +36,9 @@ Installation Steps
       b. Edit your pillar top.sls file [ /srv/pillar/top.sls]. Add "- site24x7" entry under your required environment.
       c. Edit the /srv/pillar/site24x7.sls file. Replace the devicekey with the actual device key obtained from our portal. Replace proxy values if required in the proxy field (Let it be "None" if no proxy is required. )
 4. Now your setup is complete and you can exectue the below sample commands :
-      a. To bulk install our agent in all minions : sudo salt '*' state.sls install
-      b. To bulk uninstall our agent in all minions : sudo salt '*' state.sls uninstall
-      c. To find out agent status in all minions : sudo salt '*' state.sls status
+      a. To bulk install our agent in all minions : sudo salt '*' state.sls site24x7.install
+      b. To bulk uninstall our agent in all minions : sudo salt '*' state.sls site24x7.uninstall
+      c. To find out agent status in all minions : sudo salt '*' state.sls site24x7.status
 5. View your servers from your Site24x7 account. https://www.site24x7.com/login.html
 
 Related Links
