@@ -17,4 +17,8 @@ install-agent:
     - name: sudo ./{{ pillar['site24x7']['installfile']['fileName'] }} -i -key={{ pillar['site24x7']['user']['devicekey'] }} -installer=saltstack -proxy={{ pillar['site24x7']['user']['proxy'] }} -f
     {% endif %}
     - user: root
+{% else %}
+cleanup-install:
+  file.absent:
+    - name: ~/{{ pillar['site24x7']['installfile']['fileName'] }}
 {% endif %}
