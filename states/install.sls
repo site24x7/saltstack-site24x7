@@ -1,7 +1,7 @@
 {% if not salt['file.directory_exists' ]('/opt/site24x7/monagent/bin') %}
 download-agent:
   cmd.run:
-    - name: sudo wget https://staticdownloads.site24x7.com/server/{{ pillar['site24x7']['installfile']['fileName'] }}
+    - name: wget https://staticdownloads.site24x7.com/server/{{ pillar['site24x7']['installfile']['fileName'] }}
     - user: root
 
 chmod-agent:
@@ -12,9 +12,9 @@ chmod-agent:
 install-agent:
   cmd.run:
     {% if pillar['site24x7']['user']['proxy'] == 'None' %}
-    - name: sudo ./{{ pillar['site24x7']['installfile']['fileName'] }} -i -key={{ pillar['site24x7']['user']['devicekey'] }} -installer=saltstack -f
+    - name: ./{{ pillar['site24x7']['installfile']['fileName'] }} -i -key={{ pillar['site24x7']['user']['devicekey'] }} -installer=saltstack -f
     {% else %}
-    - name: sudo ./{{ pillar['site24x7']['installfile']['fileName'] }} -i -key={{ pillar['site24x7']['user']['devicekey'] }} -installer=saltstack -proxy={{ pillar['site24x7']['user']['proxy'] }} -f
+    - name: ./{{ pillar['site24x7']['installfile']['fileName'] }} -i -key={{ pillar['site24x7']['user']['devicekey'] }} -installer=saltstack -proxy={{ pillar['site24x7']['user']['proxy'] }} -f
     {% endif %}
     - user: root
 {% else %}
